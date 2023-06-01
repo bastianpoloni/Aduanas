@@ -1,4 +1,5 @@
 class Empresa {
+
     constructor(idRegistro, nombre, rut, importaciones) {
         this.idRegistro = idRegistro;
         this.nombre = nombre;
@@ -37,10 +38,16 @@ class Empresa {
     }
 
     sumaImportaciones(){
-        return this.importaciones.length;
+        return ` La cantidad de importaciones es: ${this.importaciones.length}`;
     }
 
-
+    calculaTotalImportaciones(){
+        let total=0;
+        this.importaciones.forEach(imp=>{
+            total= total + imp._precioUnit * imp._numProd;
+        })
+        return `El total de las importaciones es: $${total}`;
+    }
     
 }
 
@@ -86,3 +93,5 @@ empresa1.addImport(importacion1);
 empresa1.addImport(importacion2);
 empresa1.addImport(importacion3);
 console.log(empresa1.sumaImportaciones());
+console.log(empresa1);
+console.log(empresa1.calculaTotalImportaciones());
